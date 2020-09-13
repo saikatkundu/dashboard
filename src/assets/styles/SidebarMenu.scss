@@ -1,0 +1,114 @@
+$sidebarBorderColor: #ebebeb;
+$searchContainerBg: white;
+$searchIconColor: gray;
+$homeBackColor: #ff1aff;
+$homeColor: white;
+$addIconColor: #33ccff;
+$activeItemBg: #ccebff;
+$activeItemColor: #008ae6;
+
+sidebarMenuDisplay {
+    display: flex;
+    flex-direction: column;
+}
+.sidebarMenu {
+    @extend sidebarMenuDisplay;
+    flex: 1;
+    justify-content: space-between;
+    border-right: 1px solid $sidebarBorderColor;
+
+    > h2 {
+        font-size: 17px;
+        padding: 8px 20px;
+    }
+
+    /* search bar section */
+    .sidebar_search{
+        display: flex;
+        align-items: center;
+
+        .sidebar_searchContainer{
+            @extend .sidebar_search;
+            background-color: $searchContainerBg;
+            width: 100%;
+            height: 35px;
+            border-radius: 20px;
+
+            > .MuiSvgIcon-root{
+                color: $searchIconColor;
+                margin-left: 15px;
+            }
+
+            > input{
+                border: none;
+            }
+            > input:focus{
+                outline: none;
+            }
+        }
+    }
+    /* eof search bar section */
+
+    .sidebarMenu_items {
+        flex: 1;
+
+        .MuiButtonBase-root{
+            padding: 0 !important;
+            
+            .homeIcon{
+                background-color: $homeBackColor;
+                color: $homeColor;
+                border-radius: 5px;
+                height: 20px;
+                > .MuiSvgIcon-root {
+                    padding: 2px;
+                }
+            }
+            .addIcon{
+                color: $addIconColor;
+            }
+
+        }
+        .MuiListItemText-root {
+            flex: 1 1 auto;
+            min-width: 0;
+            margin: 0 0 4px 15px;
+            background-color: $activeItemBg;
+            color: $activeItemColor;
+            border-radius: 8px;
+            cursor: pointer;
+            .MuiTypography-displayBlock{
+                padding: 5px 15px;
+            }
+        }
+
+    }
+    /* eof menu item section */
+
+    .sidebarMenu_footer{
+        @extend sidebarMenuDisplay;
+        .sidebarMenu_dash{
+            font-size: 16px;
+            font-weight: 600;
+            padding: 15px;
+            border-top: 1px solid $sidebarBorderColor;
+            border-bottom: 1px solid $sidebarBorderColor;
+        }
+        .sidebarMenu_app{
+            @extend .sidebar_search;
+            align-items: center;
+            height: 65px;
+            justify-content: center;
+            
+            .sidebarMenu_app_button{
+                border: 1px solid $sidebarBorderColor;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex: .95;
+            }
+        }
+    }
+    /* eof footer section */
+}

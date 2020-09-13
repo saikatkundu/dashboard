@@ -1,0 +1,175 @@
+$tableBg: #ebebeb;
+$titleBg: #ebebeb;
+$borderLeftColor: #1aa3ff;
+$borderLeftWidth: 5px;
+$labelBtnCol: #1aa3ff;
+$backColor: white;
+$statusRightBorderWidth: 8px;
+$statusRightBg: #dadada;
+$statusColor: white;
+$priorityColor: white;
+$formBg: white;
+$errorColor: #e00;
+
+container{
+    display: flex;
+    flex: 1;
+    padding: 0 5px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bodyContainer{
+    background-color: $backColor;
+
+    & .todoTable{
+        margin-top: 10px;
+        flex: 1;
+        height: 350px;
+        
+        .addMore{
+            background-color: $tableBg;
+            flex:1;
+            height: 35px;
+            border-left: $borderLeftWidth solid $borderLeftColor;
+            cursor: pointer;
+            .MuiSvgIcon-root{
+                padding: 5px;
+            }
+        }
+    }
+    .ag-row{
+        background-color: $tableBg;
+
+    }
+    .ag-cell{
+        padding: 0;
+        .ag-cell-value{
+            display: flex;
+            flex: 1;
+        }
+        
+
+        
+        .titleContainer{
+            @extend container;
+            border-left: $borderLeftWidth solid $borderLeftColor;
+            .icon{
+                @extend container;
+                flex: .2;
+                justify-content: flex-end;
+            }
+        }
+        .ownerContainer{
+            @extend container;
+            justify-content: center;
+            .MuiGrid-root{
+                height: 100%;
+            }
+        }
+
+        .statusContainer{
+            @extend container;
+            padding: 0;
+            .status{
+                @extend .statusContainer;
+                justify-content: center;
+                color: $statusColor;
+                height: 34px;
+
+            }
+            .statusRightBorder{
+                width: $statusRightBorderWidth;
+                opacity: 0.5;
+                height: 100%;
+                background-color: $statusRightBg;
+            }
+        }
+        .dueDateContainer{
+            @extend container;
+            .progress{
+                flex: .3;
+            }
+            .dueDate{
+                @extend container;
+                flex: .7;
+                justify-content: center;
+            }
+        }
+        .priorityContainer{
+            @extend container;
+            justify-content: center;
+            color: $priorityColor;
+        }
+    }
+    .ag-react-container{
+        @extend .ag-cell-value;
+        height: 100%;
+        width: 100%;
+        
+        
+    }
+    .headerCompContainer{
+        @extend container;
+        justify-content: center;
+        height: 100%;
+        position: relative;
+        .headerIcon{
+            cursor: pointer;
+        }
+        .headerText{
+            flex: 1;
+            input{
+                height: 30px;
+                width: 100%;
+                max-width: max-content;
+            }
+        }
+        
+    }
+    
+    .cellEditorContainer{
+        display: flex;
+        flex: 1;
+        min-width: 200px;
+        max-width: max-content;;
+        max-height: max-content;
+        position: fixed;
+        padding: 3px;
+
+        .labelEditButton{
+            color: $labelBtnCol;
+        }
+    }
+}
+.addColModal{
+    @extend container;
+    height: 100vh;
+    justify-content: center;
+    position: relative;
+    
+}
+.modalBody{
+    @extend container;
+    justify-content: space-around;
+    position: absolute;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    width: fit-content;
+    background-color: $formBg;
+    outline: none;
+    min-height: 300px;
+    min-width: 200px;
+    .modalForm{
+        @extend .modalBody;
+        min-width: 300px;
+        .error{
+            color: $errorColor;
+        }
+    }
+}
+

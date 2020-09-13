@@ -1,0 +1,43 @@
+$bodyBG: white;
+$borderColor: #dbdbdb;
+$itemButtonBg: #1aa3ff;
+$itemButtonColor: white;
+
+.makeStyles-content-7{
+    background-color: $bodyBG;
+    height: 100vh;
+    .mainBody{
+        .bodyHeader{
+            margin-top: 2px;
+            .bodyHeaderToolContainer{
+                .itemButton{
+                    border: 1px solid $borderColor;
+                    border-radius: 25px;
+                    min-width: max-content;
+                    height: 30px;
+                    padding: 0 5px 0 15px;
+                    background-color: $itemButtonBg;
+                    color: $itemButtonColor;
+                    cursor: pointer;
+                    .itemText{
+                        padding-right: 10px;
+                    }
+                }
+                .searchContainer{
+                    @extend .itemButton;
+                    background-color: $bodyBG;
+                    & input{
+                        border: none;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                }
+
+            }
+        }
+        .headerDivider{
+            margin: 0 -24px;
+        }
+    }
+}

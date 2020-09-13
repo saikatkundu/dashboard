@@ -1,0 +1,15 @@
+
+$iconColor: white;
+$containerHeight: 20vh;
+
+.iconSidebar_icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: $containerHeight;
+    .MuiIconButton-root{
+        color: $iconColor
+    }
+}

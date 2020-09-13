@@ -1,0 +1,38 @@
+$backgroundColor: #123;
+$containerHeight: 100vh;
+$upgradeTextColor: white;
+$upgradeBackgroundColor: #00b33c;
+$upgradeTextSize: 15px;
+$upgradeBorderRadius: 15px;
+
+sidebarDisplay{
+    display: flex;
+}
+.iconSidebar{
+    @extend sidebarDisplay;
+    flex: .04;
+    background-color: $backgroundColor;
+    height: $containerHeight;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .iconSidebar_upgradeLabelContainer{
+        @extend sidebarDisplay;
+        min-height: 20vh;
+        align-items: center;
+        position: relative;
+
+        .iconSidebar_upgradeLabel{
+            position: absolute;
+            transform: rotate(270deg);
+            background-color: $upgradeBackgroundColor;
+            left: -35px;
+            font-size: $upgradeTextSize;
+            padding: 7px 20px;
+            border-bottom-left-radius: $upgradeBorderRadius;
+            border-bottom-right-radius: $upgradeBorderRadius;
+            color: $upgradeTextColor;
+        }
+    }
+    
+}

@@ -1,0 +1,135 @@
+$bodyBG: white;
+$headerButtonColor: #000;
+$headingColor: #000;
+$headingDeacColor: #cccccc;
+$headingStarColor: #ebebeb;
+$borderColor: #dbdbdb;
+$iconColor: #000;
+$overlapIconColor: #1aa3ff;
+$userIconHeight: 30px;
+$zoonIconBgColor: #1aa3ff;
+$zoomIconColor: white;
+$zoomContainerHeight: 20px;
+$menuTogglerHeight: 20px;
+
+
+#root{
+    > .MuiContainer-root{
+        padding: 0 !important;
+    }
+
+    .MuiAppBar-root {
+        background-color: $bodyBG;
+        box-shadow: none;
+        
+        .MuiToolbar-root{
+            .MuiSvgIcon-root{
+
+                color: $headerButtonColor;
+            }
+            .header{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex: 1;
+                .pageHeading{
+                    @extend .header;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    max-width: max-content;
+                    .pageTitle{
+                        @extend .pageHeading;
+                        flex-direction: row;
+                        color: $headingColor;
+                        justify-content: space-between;
+                        align-items: center;
+                        
+                        .MuiSvgIcon-root{
+                            color: $headingStarColor;
+                        }
+                    }
+                    .pageDescription{
+                        font-size: 12px;
+                        margin-top: 5px;
+                        color: $headingDeacColor;
+                    }
+                }
+                .headerTools{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    max-width: max-content;
+                    flex:1;
+                    margin-right: 0 !important;
+                    .MuiGrid-root{
+                        @extend .headerTools;
+                        color: $iconColor;
+                        margin: 0 10px;
+                        position: relative;
+                        .overlapIconContainer{
+                            padding-right: 25px;
+                            .headerUserIcon{
+                                height: $userIconHeight;
+                                width: $userIconHeight;
+                            }
+                            .overlapIcon{
+                                position: absolute;
+                                margin-left: 40px;
+                                color: $overlapIconColor;
+                            }
+                        }
+                        & .hexContainer{
+                            height: 35px;
+                            max-width: max-content;
+                            border: 1px solid $borderColor;
+                            color: $iconColor;
+                            justify-content: center;
+                            cursor: pointer;
+                            .MuiSvgIcon-root{
+                                color: $iconColor;
+                                &.powerIcon{
+                                    transform: rotate(315deg);
+                                }
+                            }
+    
+                        }
+                        .zoomMeeting{
+                            @extend .hexContainer;
+                            border-radius: 25px;
+                            .zoomIconContainer{
+                                background-color: $zoonIconBgColor;
+                                height: $zoomContainerHeight;
+                                width: $zoomContainerHeight;
+                                border-radius: $zoomContainerHeight/2;
+                                margin: 0 5px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                .MuiSvgIcon-root{
+                                    color: $zoomIconColor;
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        .activity{
+                            @extend .hexContainer;
+                            border-radius: 3px;
+
+                            & .activityPeople{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                padding: 0 7px;
+                            }
+                            .activityList{
+                                @extend .activityPeople;
+                                border-left: 1px solid $borderColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
